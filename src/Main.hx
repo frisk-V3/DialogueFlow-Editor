@@ -1,26 +1,26 @@
 import js.Browser.*;
 import js.html.*;
 
+// ===== データ型 (Haxeではクラスの外で定義します) =====
+typedef Condition = {
+    flag:String,
+    required:Bool
+}
+
+typedef Choice = {
+    text:String,
+    next:String,
+    conditions:Array<Condition>
+}
+
+typedef DialogueNode = {
+    id:String,
+    text:String,
+    choices:Array<Choice>,
+    flags:Array<String>
+}
+
 class Main {
-    // ===== データ型 =====
-    typedef Condition = {
-        var flag:String;
-        var required:Bool;
-    }
-
-    typedef Choice = {
-        var text:String;
-        var next:String;
-        var conditions:Array<Condition>;
-    }
-
-    typedef DialogueNode = {
-        var id:String;
-        var text:String;
-        var choices:Array<Choice>;
-        var flags:Array<String>;
-    }
-
     // ===== エディタ本体 =====
     static var nodes:Array<DialogueNode> = [];
 
